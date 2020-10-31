@@ -33,10 +33,14 @@
             if(playerSelection==computerSelection){
                 console.log("draw! - no score!");
                 return -1; //draw case
-            }else if((playerSelection == "rock" && computerSelection=="scissors")||(playerSelection == "scissors" && computerSelection == "paper")||(playerSelection=="paper" && computerSelection == "rock")){
+            }else if((playerSelection == "rock" && computerSelection=="scissors")
+                        ||(playerSelection == "scissors" && computerSelection == "paper")
+                            ||(playerSelection=="paper" && computerSelection == "rock")){
                 console.log("player wins!");
                 return 0; //all combinations of player winners
-            }else if((computerSelection == "rock" && playerSelection=="scissors")||(computerSelection == "scissors" && playerSelection == "paper")||(computerSelection=="paper" && playerSelection == "rock")){
+            }else if((computerSelection == "rock" && playerSelection=="scissors")
+                        ||(computerSelection == "scissors" && playerSelection == "paper")
+                            ||(computerSelection=="paper" && playerSelection == "rock")){
                 console.log("computer wins!");
                 return 1; //all combinations of computer winning hands
 
@@ -79,7 +83,8 @@
             }
 
             console.log(`After ${rounds} rounds of intense, stategic action the final score is: Player - ${playerScore}   Computer - ${computerScore}`  );
-            (computerScore > playerScore) ? para.textContent = "Conclusion, computer wins!" : para.textContent = "Conclusion, player wins!";
+            (computerScore == playerScore) ? para.textContent = "Conclusion, draw!" : 
+            (computerScore>playerScore) ? para.textContent = "Conclusion, computer wins!": para.textContent = "Conclusion, player wins!";
 
         }
         
