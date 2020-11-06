@@ -6,13 +6,22 @@
 <html>
 
 <body>
-    <div class = "output">
+    
+    
+    
+       <form class="choice-container" id="weapon-choice" onsubmit="return false">
 
 
 
 
 
-    </div>
+
+
+        <button class= "form-button" type="button">Play!</button>
+       </form>
+       
+        
+
 
 
     <h1>
@@ -27,84 +36,7 @@
 
     </p>
    
-
-    <script>
-
-      
-
-        let choiceArray = ["rock","paper","scissors"];
-        let para = document.querySelector("p"); //selects html element to alter on decision
-
-        function playRound(playerSelection,computerSelection){
-
-            console.log(`Computer selection: ${computerSelection}, Player selection: ${playerSelection}`);
-            if(playerSelection==computerSelection){
-                console.log("draw! - no score!");
-                return -1; //draw case
-            }else if((playerSelection == "rock" && computerSelection=="scissors")
-                        ||(playerSelection == "scissors" && computerSelection == "paper")
-                            ||(playerSelection=="paper" && computerSelection == "rock")){
-                console.log("player wins!");
-                return 0; //all combinations of player winners
-            }else if((computerSelection == "rock" && playerSelection=="scissors")
-                        ||(computerSelection == "scissors" && playerSelection == "paper")
-                            ||(computerSelection=="paper" && playerSelection == "rock")){
-                console.log("computer wins!");
-                return 1; //all combinations of computer winning hands
-
-            }
-
-        }
-
-        function computerSelection(){
-
-            let choice = Math.floor(Math.random()*3); 
-            return choiceArray[choice];
-
-        }
-
-
-        function game(rounds){
-
-            let computerScore = 0;
-            let playerScore = 0;
-
-            let playerChoice;
-            let computerChoice;
-            let decision;
-
-
-            for(let i=0;i<rounds;i++){
-                playerChoice = prompt("Please select your choice of weapon: 'rock' , 'paper or 'scissors' ").toLowerCase();
-                computerChoice = computerSelection();
-                decision = playRound(playerChoice,computerChoice);
-
-                if(decision == 0){
-                    playerScore +=1;
-
-                }else if(decision == 1){
-                    computerScore +=1;
-
-                }
-
-
-            }
-
-            console.log(`After ${rounds} rounds of intense, stategic action the final score is: Player - ${playerScore}   Computer - ${computerScore}`  );
-            (computerScore == playerScore) ? para.textContent = "Conclusion, draw!" : 
-            (computerScore>playerScore) ? para.textContent = "Conclusion, computer wins!": para.textContent = "Conclusion, player wins!";
-
-        }
-        
-       let rounds = parseInt(prompt("how many rounds would you like to simulate?"));
-       game(rounds);
-
-
-    
-
-
-
-    </script>
+    <script src="scripts.js"></script>
 
 
 
